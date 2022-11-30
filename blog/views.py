@@ -21,5 +21,6 @@ def posts(request):
 def blog_post(request, slug):
     identified_post = get_object_or_404(Post, slug=slug)
     return render (request, "blog/blog-post.html", {
-        "post": identified_post
+        "post": identified_post,
+        "post_tags": identified_post.tags.all()
     })
